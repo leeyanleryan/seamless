@@ -22,12 +22,16 @@
 
     async function update() {
       let pyodide = await pyodideReadyPromise;
-      pyodide.runPython(`
+      try {
+        pyodide.runPython(`
         import js
         inp1 = js.document.getElementById("test1")
         inp2 = js.document.getElementById("test2")
         js.document.getElementById("output").innerHTML = int(inp1.value) + int(inp2.value)
       `);
+      } catch(err) {
+        document.getElementById("output").innerHTML = "Error!"
+      }
     }
   </script>
   <!-- <script type="module" src="./js/test.mjs"></script> -->
