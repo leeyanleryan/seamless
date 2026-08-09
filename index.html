@@ -9,16 +9,27 @@
 </head>
 <body>
   <h1>Test</h1>
+  <input id="test1">
+  <input id="test2">
+  <button onclick="update()">Run</button>
+  <p id="output"></p>
   <script type="text/javascript">
-    async function main(){
+    async function main() {
       let pyodide = await loadPyodide();
-      console.log(pyodide.runPython(`
-          import sys
-          sys.version
-      `));
-      pyodide.runPython("print(1 + 2)");
+      return pyodide;
     }
-    main();
+    let pyodideReadyPromise = main();
+
+    async function update() {
+      let pyodide = await pyodideReadyPromise;
+      pyodide.runPython(`
+        import js
+        inp1 = js.document.getElementById("test1")
+        inp2 = js.document.getElementById("test2")
+        js.document.getElementById("output").innerHTML = int(inp1.value) + int(inp2.value)
+      `);
+    }
   </script>
+  <!-- <script type="module" src="./js/test.mjs"></script> -->
 </body>
 </html>
