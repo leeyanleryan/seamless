@@ -40,7 +40,6 @@
       let pyodide = await pyodideReadyPromise;
       try {
         pyodide.globals.set("total", pyodide.globals.get("total")*2);
-        console.log(pyodide.globals.get("total"));
         document.getElementById("output").innerHTML = pyodide.globals.get("total");
       } catch(err) {
         document.getElementById("output").innerHTML = "Error!"
