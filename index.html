@@ -11,41 +11,9 @@
   <h1>Test</h1>
   <input id="test1" value="2">
   <input id="test2" value="3">
-  <button onclick="add()">Add</button>
-  <button onclick="multiplyby2()">Multiply by 2</button>
+  <button id="add-button">Add</button>
+  <button id="multiply-button">Multiply by 2</button>
   <p id="output"></p>
-  <script type="text/javascript">
-    async function main() {
-      let pyodide = await loadPyodide();
-      return pyodide;
-    }
-    let pyodideReadyPromise = main();
-
-    async function add() {
-      let pyodide = await pyodideReadyPromise;
-      try {
-        pyodide.runPython(`
-        import js
-        inp1 = js.document.getElementById("test1")
-        inp2 = js.document.getElementById("test2")
-        total = int(inp1.value) + int(inp2.value)
-        js.document.getElementById("output").innerHTML = total
-      `);
-      } catch(err) {
-        document.getElementById("output").innerHTML = "Error!"
-      }
-    }
-
-    async function multiplyby2() {
-      let pyodide = await pyodideReadyPromise;
-      try {
-        pyodide.globals.set("total", pyodide.globals.get("total")*2);
-        document.getElementById("output").innerHTML = pyodide.globals.get("total");
-      } catch(err) {
-        document.getElementById("output").innerHTML = "Error!"
-      }
-    }
-  </script>
-  <!-- <script type="module" src="./js/test.mjs"></script> -->
+  <script type="module" src="./js/test.mjs"></script>
 </body>
 </html>
