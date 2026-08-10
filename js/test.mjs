@@ -1,8 +1,13 @@
 async function main() {
   let pyodide = await loadPyodide();
-  const testpy = await fetch("./py/test.py");
-  const testpyCode = await testpy.text();
-  await pyodide.runPythonAsync(testpyCode);
+  const pythonFiles = [
+    "./py/test.py"
+  ];
+  for (const pythonFile of pythonFiles) {
+    const py = await fetch(pythonFile);
+    const pyCode = await py.text();
+    await pyodide.runPythonAsync(pyCode);
+  }
   return pyodide;
 }
 
