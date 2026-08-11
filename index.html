@@ -9,13 +9,27 @@
   <script src="https://cdn.jsdelivr.net/pyodide/v314.0.4/full/pyodide.js"></script>
 </head>
 <body>
-  <h1>Test</h1>
-  <input id="test1" value="2">
-  <input id="test2" value="3">
-  <button id="add-button">Add</button>
-  <button id="multiply-button">Multiply by 2</button>
-  <p id="output"></p>
-  <a href="https://www.flaticon.com/free-icons/machine-learning" title="machine learning icons">Machine learning icons created by Smashicons - Flaticon</a>
-  <script type="module" src="./js/test.mjs"></script>
+  <div class="main-body">
+    <h1>seamless</h1>
+    <hr>
+    <h2>Data Setup</h2>
+    <ul>
+      <li>Default: 5 rows, 5 columns</li>
+      <li>Minimum: 2 rows, 2 columns</li>
+      <li>Maximum: 20 rows, 10 columns</li>
+    </ul>
+    <input id="num-rows" placeholder="Type number of rows...">
+    <input id="num-cols" placeholder="Type number of columns...">
+    <button id="generate-random-data">Generate random data</button>
+    <div id="data">
+
+    </div>
+    <div class="footer">
+      <hr>
+      <p>Source code: <a href="https://github.com/leeyanleryan/seamless" title="Source Code">GitHub</a></p>
+      <p>Flaticon attribution: <a href="https://www.flaticon.com/free-icons/machine-learning" title="machine learning icons">Machine learning icons created by Smashicons - Flaticon</a></p>
+    </div>
+  </div>
+  <script type="module" src="./js/pyodide.mjs"></script>
 </body>
 </html>
