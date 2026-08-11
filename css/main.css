@@ -31,6 +31,21 @@ a {
   margin: auto;
 }
 
+.generate-data-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.generate-data-div input {
+  font-size: 16px;
+}
+
+.generate-data-div button {
+  font-size: 16px;
+}
+
 .data {
   display: grid;
   grid-template-columns: repeat(5, 55px);
