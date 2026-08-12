@@ -15,13 +15,21 @@
     <h2>Data Setup</h2>
     <ul>
       <li>Default: 5 rows, 5 columns</li>
-      <li>Minimum: 2 rows, 2 columns</li>
+      <li>Minimum: 1 row, 2 columns</li>
       <li>Maximum: 20 rows, 10 columns</li>
     </ul>
     <div class="generate-data-div">
-      <input id="num-rows" placeholder="Number of rows...">
-      <input id="num-cols" placeholder="Number of columns...">
-      <button id="generate-random-data">Generate random data</button>
+      <input id="data-rows" type="number" placeholder="Number of rows...">
+      <input id="data-cols" type="number" placeholder="Number of columns...">
+      <button id="generate-data-button">Generate random data</button>
+      <div>
+        <input id="generate-data-type-x" type="checkbox">
+        <label for="generate-data-type-x">Set some x as categorical data</label>
+      </div>
+      <div>
+        <input id="generate-data-type-y" type="checkbox">
+        <label for="generate-data-type-y">Set y as categorical data</label>
+      </div>
     </div>
     <div id="data" class="data"></div>
     <script src="./js/data_generator.js"></script>

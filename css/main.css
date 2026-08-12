@@ -16,6 +16,20 @@ html {
   background: var(--bg-color);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=checkbox] {
+  accent-color: #0075FF;
+}
+
 hr {
   border: none;
   height: 1px;
@@ -32,18 +46,24 @@ a {
 }
 
 .generate-data-div {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 250px);
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  place-content: center;
+  gap: 2px;
 }
 
 .generate-data-div input {
   font-size: 16px;
 }
 
-.generate-data-div button {
-  font-size: 16px;
+#generate-data-button {
+  grid-column-start: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  font-size: 20px;
+  height: 48px;
 }
 
 .data {
